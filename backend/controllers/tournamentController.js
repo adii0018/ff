@@ -20,7 +20,7 @@ const createTournament = async (req, res) => {
       time,
       maxPlayers: Number(maxPlayers),
       description,
-      qrCodeImage: req.file.path, // Cloudinary URL
+      qrCodeImage: `http://localhost:5000/${req.file.path.replace(/\\/g, "/")}`,
       hostId: req.user._id,
     });
 

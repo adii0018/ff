@@ -33,7 +33,7 @@ const registerPlayer = async (req, res) => {
       ign,
       contact,
       transactionId,
-      screenshot: req.file ? req.file.path : "",
+      screenshot: req.file ? `http://localhost:5000/${req.file.path.replace(/\\/g, "/")}` : "",
     });
 
     res.status(201).json({ message: "Registration submitted successfully", registration });

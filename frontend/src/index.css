@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0A0A0F;
+  color: #e2e8f0;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Neon glow utilities */
+.neon-border {
+  border: 1px solid #00D4FF;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+.orange-border {
+  border: 1px solid #FF6B00;
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
+}
+
+.neon-text {
+  color: #00D4FF;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.orange-text {
+  color: #FF6B00;
+  text-shadow: 0 0 15px rgba(255, 107, 0, 0.6);
+}
+
+.gold-text {
+  color: #FFD700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.5), 0 0 40px rgba(255, 107, 0, 0.2);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B00, #FFD700);
+  color: #000;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(255, 107, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #FF6B00;
+  color: #FF6B00;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 107, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.card-dark {
+  background: linear-gradient(135deg, #12121A, #1a1a2e);
+  border: 1px solid #1E1E2E;
+  transition: all 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: #FF6B00;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.hero-bg {
+  background: 
+    radial-gradient(ellipse at top, rgba(255, 107, 0, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, #0A0A0F 0%, #0d0d1a 100%);
+}
+
+.section-bg {
+  background: linear-gradient(180deg, #0A0A0F 0%, #0d0d1a 50%, #0A0A0F 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #12121A; }
+::-webkit-scrollbar-thumb { background: #FF6B00; border-radius: 3px; }
+
+/* Clip path for sharp edges */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.clip-diagonal-r {
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Fire particle effect */
+@keyframes fireFlicker {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.8; transform: scaleY(0.95); }
+}
+
+.fire-text {
+  animation: fireFlicker 1.5s ease-in-out infinite;
+}
+
+/* Grid lines background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 107, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
