@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { protect } = require("../middleware/auth");
+const { protect, optionalAuth } = require("../middleware/auth");
 const { uploadScreenshot } = require("../config/upload");
 const {
   registerPlayer,
   getRegistrations,
+  getMyRegistrations,
   approveRegistration,
   rejectRegistration,
 } = require("../controllers/registrationController");
 
-router.post("/", uploadScreenshot.single("screenshot"), registerPlayer);
+router.post("/", optionalAuth, uploadScreenshot.single("screenshot"), registerPlayer);
+router.get("/player/mine", protect, getMyRegistrations);
 router.get("/:tournamentId", protect, getRegistrations);
 router.patch("/approve/:id", protect, approveRegistration);
 router.patch("/reject/:id", protect, rejectRegistration);

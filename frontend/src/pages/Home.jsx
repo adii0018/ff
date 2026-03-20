@@ -1,32 +1,20 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { getTournaments } from "../services/api";
+import StarField from "../components/landing/StarField";
 import HeroSection from "../components/landing/HeroSection";
-import FeaturesSection from "../components/landing/FeaturesSection";
-import TournamentsSection from "../components/landing/TournamentsSection";
-import PaymentSection from "../components/landing/PaymentSection";
-import LeaderboardSection from "../components/landing/LeaderboardSection";
+import StatsSection from "../components/landing/StatsSection";
+import HowToJoin from "../components/landing/HowToJoin";
+import LiveTournaments from "../components/landing/LiveTournaments";
+import CTABanner from "../components/landing/CTABanner";
 import Footer from "../components/landing/Footer";
 
 export default function Home() {
-  const [tournaments, setTournaments] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getTournaments()
-      .then((res) => setTournaments(res.data))
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
-
   return (
-    <div className="min-h-screen bg-dark overflow-x-hidden">
+    <div className="relative min-h-screen bg-dark overflow-x-hidden" style={{ backgroundColor: "#050A05" }}>
+      <StarField />
       <HeroSection />
-      <FeaturesSection />
-      <TournamentsSection tournaments={tournaments} loading={loading} />
-      <PaymentSection />
-      <LeaderboardSection />
+      <StatsSection />
+      <LiveTournaments />
+      <HowToJoin />
+      <CTABanner />
       <Footer />
     </div>
   );

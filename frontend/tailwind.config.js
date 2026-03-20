@@ -4,13 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#7C3AED",
-        neon: "#00D4FF",
-        orange: "#FF6B00",
-        yellow: "#FFD700",
-        dark: "#0A0A0F",
-        card: "#12121A",
-        border: "#1E1E2E",
+        primary: "#00C853",
+        neon: "#00FF88",
+        dark: "#050A05",
+        card: "#0a120a",
+        border: "#1a2e1a",
       },
       fontFamily: {
         gaming: ["'Rajdhani'", "sans-serif"],
@@ -23,8 +21,8 @@ export default {
       },
       keyframes: {
         glow: {
-          "0%": { textShadow: "0 0 10px #FF6B00, 0 0 20px #FF6B00" },
-          "100%": { textShadow: "0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 60px #FF6B00" },
+          "0%": { textShadow: "0 0 10px #00FF88, 0 0 20px #00FF88" },
+          "100%": { textShadow: "0 0 20px #00C853, 0 0 40px #00C853, 0 0 60px #00FF88" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },

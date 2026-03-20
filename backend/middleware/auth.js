@@ -3,14 +3,10 @@ const User = require("../models/User");
 
 const protect = async (req, res, next) => {
   let token;
-
   if (req.headers.authorization?.startsWith("Bearer ")) {
     token = req.headers.authorization.split(" ")[1];
   }
-
-  if (!token) {
-    return res.status(401).json({ message: "Not authorized, no token" });
-  }
+  if (!token) return res.status(401).json({ message: "Not authorized, no token" });
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -22,4 +18,19 @@ const protect = async (req, res, next) => {
   }
 };
 
-module.exports = { protect };
+// Attaches user if token present, but doesn't block if missing
+const optionalAuth = async (req, res, next) => {
+  let token;
+  if (req.headers.authorization?.startsWith("Bearer ")) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(decoded.id).select("-password");
+    } catch (_) {}
+  }
+  next();
+};
+
+module.exports = { protect, optionalAuth };

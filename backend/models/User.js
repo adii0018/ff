@@ -6,7 +6,11 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true, lowercase: true },
     password: { type: String, required: true, minlength: 6 },
-    role: { type: String, default: "host" },
+    role: { type: String, enum: ["host", "player"], default: "host" },
+    // Player-specific fields
+    uid: { type: String, trim: true, default: "" },       // Free Fire UID
+    ign: { type: String, trim: true, default: "" },       // In-game name
+    contact: { type: String, trim: true, default: "" },
   },
   { timestamps: true }
 );

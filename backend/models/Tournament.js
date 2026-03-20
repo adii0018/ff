@@ -16,6 +16,9 @@ const tournamentSchema = new mongoose.Schema(
     description: { type: String, trim: true },
     qrCodeImage: { type: String, required: true }, // Cloudinary URL
     hostId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    roomId: { type: String, default: "" },
+    roomPassword: { type: String, default: "" },
+    status: { type: String, enum: ["upcoming", "live", "completed"], default: "upcoming" },
   },
   { timestamps: true }
 );

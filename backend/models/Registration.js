@@ -7,6 +7,7 @@ const registrationSchema = new mongoose.Schema(
       ref: "Tournament",
       required: true,
     },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null }, // optional player account link
     playerName: { type: String, required: true, trim: true },
     uid: { type: String, required: true, trim: true },
     ign: { type: String, required: true, trim: true },
